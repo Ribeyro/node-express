@@ -1,0 +1,8 @@
+comando para instalar dependecias 
+
+===> node_modules y pakage-lock.json
+
+npm i express connect-flash bcryptjs express-handlebars express-session method-override mongoose passport passport-local
+
+===> crear carpetas den tro de src
+mkdir config controllers helpers models public routes views
