@@ -21,12 +21,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas
-app.get('/', (req, res) => {
-    res.render('index');
-});
+const indexRoutes = require('./routes/index.routes');
+app.use(indexRoutes);
 
 // Archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //encuentra la carpeta public
 
 module.exports = app;
 
