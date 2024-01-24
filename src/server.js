@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const morgan = require('morgan');
 
 // Inicializaciones
 const app = express();
@@ -18,11 +19,14 @@ app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
 
 // Middlewares
+
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas
-const indexRoutes = require('./routes/index.routes');
-app.use(indexRoutes);
+
+app.use(require('./routes/index.routes'));
+app.use(require('./routes/notes.routes'));
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public'))); //encuentra la carpeta public
