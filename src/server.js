@@ -24,18 +24,14 @@ app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
 
 // Middlewares
-
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas
-
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/notes.routes'));
 
 // Archivos estáticos
-app.use(express.static(path.join(__dirname, 'public'))); //encuentra la carpeta public
+app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
-
-
